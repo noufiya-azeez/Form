@@ -1,0 +1,24 @@
+<table border="1">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Fll Name</th>
+            <th>Email</th>
+            <th>Age</th>
+            <th>Class</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for detail in records %}
+        <tr>
+            <td>{{ detail.id }}</td>
+            <td>{{ detail.full_Name }}</td>
+            <td>{{ detail.email }}</td>
+            <td>{{ detail.Class }}</td>
+            <td>{{ detail.attachment.name|default:"-" }}</td>
+            <td><a href="{% url 'update-student' id=detail.id %}">Edit</a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
